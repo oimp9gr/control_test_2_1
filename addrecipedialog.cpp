@@ -2,6 +2,7 @@
 #include "ui_addrecipedialog.h"
 
 #include <QTimer>
+#include <QSpinBox>
 
 AddRecipeDialog::AddRecipeDialog(QWidget *parent) :
     QDialog(parent),
@@ -12,7 +13,7 @@ AddRecipeDialog::AddRecipeDialog(QWidget *parent) :
     ui->error_label->hide();
 
     connect(ui->i1_lineEdit, &QLineEdit::textChanged, [=] (const QString & value) { updateRecipeIngredient(1, value); });
-    connect(ui->i1_spinBox, &QSpinBox::valueChanged, [=] (int value) { updateRecipeWeight(1, value); });
+    //connect(ui->i1_spinBox, &QSpinBox::valueChanged, [=] (int value) { updateRecipeWeight(1, value); });
 }
 
 AddRecipeDialog::~AddRecipeDialog()
@@ -44,7 +45,7 @@ void AddRecipeDialog::on_add_pushButton_clicked()
     ui->weights_verticalLayout->addWidget(i_n_spinBox);
 
     connect(i_n_lineEdit, &QLineEdit::textChanged, [=] (const QString & value) { updateRecipeIngredient(number, value); });
-    connect(i_n_spinBox, &QSpinBox::valueChanged, [=] (int value) { updateRecipeWeight(number, value); });
+    //connect(i_n_spinBox, SIGNAL(valueChanged()), [=] (int value) { updateRecipeWeight(number, value); });
 }
 
 void AddRecipeDialog::updateRecipeIngredient(int index, const QString &ingredient)

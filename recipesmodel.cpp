@@ -19,6 +19,10 @@ QVariant RecipesModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+std::pair<QString, int>& RecipesModel::operator[](const size_t& idx){
+    return m_recipes[idx].ingredients[idx];
+    }
+
 void RecipesModel::addRecipe(const Recipe &recipe)
 {
     m_recipes.push_back(recipe);

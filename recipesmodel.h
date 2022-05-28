@@ -20,9 +20,10 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
 public:
+    std::pair<QString, int>& operator[](const size_t& idx);
     void addRecipe(const Recipe & recipe);
 
-private:
+public:
     std::vector<Recipe> m_recipes;
 };
 
