@@ -22,7 +22,7 @@ public:
 public:
     void addRecipe(const Recipe & recipe);
 
-private:
+public:
     std::vector<Recipe> m_recipes;
 };
 
