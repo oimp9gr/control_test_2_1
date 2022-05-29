@@ -22,6 +22,18 @@ public:
 public:
     void addRecipe(const Recipe & recipe);
 
+    QString GetIngridient(const size_t& ind){
+         return m_recipes[ind].ingredients[ind].first;
+     }
+     int GetWeight(const size_t& ind){
+         return m_recipes[ind].ingredients[ind].second;
+     }
+
+     int GetSize(const size_t& ind){
+         return m_recipes[ind].ingredients.size();
+     }
+
+
 private:
     std::vector<Recipe> m_recipes;
 };
