@@ -18,7 +18,7 @@ public:
     ~Widget();
 
 private slots:
-    void on_recipes_listView_clicked(const QModelIndex &index);
+    void on_recepies_clicked(const QModelIndex &index);
 
     void on_pushButton_clicked();
 

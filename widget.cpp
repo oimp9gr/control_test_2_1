@@ -12,7 +12,8 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->recipes_listView->setModel(model);
+    ui->recepies->setModel(model);
+    ui->recepies->show();
 }
 
 Widget::~Widget()
@@ -21,23 +22,27 @@ Widget::~Widget()
 }
 
 
-void Widget::on_recipes_listView_clicked(const QModelIndex &index)
+void Widget::on_recepies_clicked(const QModelIndex &index)
 {
-    QMessageBox::warning(this,
-                         tr("\"on_recipes_listView_clicked\" method is not implemented."),
-                         tr("It is one of the methods you need to implement\n"
-                            "to complete the assignment.")
-                         );
+//    ui->name_of->setText(model->data(index, Qt::DisplayRole).toString());
+//
+//    ui->name_of->show();
+    for (auto the_pair: model->m_recipes) {
+        ui->name_of_ingredient->setText(model->m_recipes[index.row()].ingredients[0].first);
+        ui->mass->setValue(model->m_recipes[index.row()].ingredients[1].second);
+    }
+
+
 }
 
 
 void Widget::on_pushButton_clicked()
 {
     auto * dialog = new AddRecipeDialog();
-    QMessageBox::warning(this,
-                         tr("\"on_pushButton_clicked\" method is partly implemented."),
-                         tr("You need to fully implement the method\n"
-                            "to complete the assignment.")
-                         );
+
+    dialog->exec();
+    model->addRecipe(dialog->getRecipe());
+    ui->recepies->setModel(model);
+    ui->recepies->show();
 }
 

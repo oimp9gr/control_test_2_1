@@ -3,6 +3,7 @@
 
 #include <QAbstractListModel>
 #include <vector>
+#include <unordered_map>
 
 struct Recipe {
     QString name;
@@ -22,8 +23,9 @@ public:
 public:
     void addRecipe(const Recipe & recipe);
 
-private:
+
     std::vector<Recipe> m_recipes;
+    //std::unordered_map<QString, int> my_map;
 };
 
 #endif // RECIPESMODEL_H
