@@ -61,10 +61,6 @@ void Widget::on_recipes_listView_clicked(const QModelIndex &index)
     }
     }
         switch (recipes[index.row()].ingredients.size()){
-        case 0:{
-        ui->in1->clear();
-        ui->spin1->hide();
-        }
         case 1:{
             ui->in2->clear();
             ui->spin2->hide();
