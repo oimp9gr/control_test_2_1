@@ -13,12 +13,12 @@ class RecipesModel : public QAbstractListModel
 {
 public:
     explicit RecipesModel(QObject *parent = nullptr);
-
+    explicit RecipesModel(const std::vector<Recipe> ,QObject *parent = nullptr);
     // QAbstractItemModel interface
 public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;
-
+    std::vector<Recipe> Get();
 public:
     void addRecipe(const Recipe & recipe);
 

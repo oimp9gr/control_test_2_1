@@ -6,6 +6,12 @@ RecipesModel::RecipesModel(QObject *parent)
 
 }
 
+RecipesModel::RecipesModel(const std::vector<Recipe> vec_to_add,QObject *parent)
+    : QAbstractListModel{parent}
+{
+
+}
+
 int RecipesModel::rowCount(const QModelIndex &parent) const
 {
     return m_recipes.size();
@@ -25,3 +31,7 @@ void RecipesModel::addRecipe(const Recipe &recipe)
 
     emit dataChanged(index(0), index(m_recipes.size()), {Qt::DisplayRole});
 }
+
+std::vector<Recipe> RecipesModel::Get(){
+    return m_recipes;
+};
